@@ -170,11 +170,28 @@ idf_component_register(SRCS "main.c"
 
 #### 4.1 จาก `idf.py monitor` 
 
+```text
+I (8770) LAB1_RGB_TIMING: Phase R: ON
+I (10770) LAB1_RGB_TIMING: Phase R: OFF
+I (11270) LAB1_RGB_TIMING: Phase G: ON
+I (13270) LAB1_RGB_TIMING: Phase G: OFF
+I (13770) LAB1_RGB_TIMING: Phase B: ON
+I (15770) LAB1_RGB_TIMING: Phase B: OFF
+I (16270) LAB1_RGB_TIMING: Entering Rest Phase... Waiting for residual charge to dissipate.
+-----------------------------------------------------------
+I (17270) LAB1_RGB_TIMING: Phase R: ON
+I (19270) LAB1_RGB_TIMING: Phase R: OFF
+I (19770) LAB1_RGB_TIMING: Phase G: ON
+I (21770) LAB1_RGB_TIMING: Phase G: OFF
+I (22270) LAB1_RGB_TIMING: Phase B: ON
+I (24270) LAB1_RGB_TIMING: Phase B: OFF
+I (24770) LAB1_RGB_TIMING: Entering Rest Phase... Waiting for residual charge to dissipate.
 ```
 
+#### 4.2 จากการสังเกต LED 
 
-```
-
-#### 4.2 จากการสังเกตุ LED 
-
-
+1. เมื่อเริ่มต้นโปรแกรม หลอด LED สีแดง (Red) สว่างขึ้นเป็นเวลา 2.5 วินาที แล้วดับลง
+2. ทันทีที่สีแดงดับ หลอด LED สีเขียว (Green) สว่างขึ้นเป็นเวลา 2.5 วินาที แล้วดับลง
+3. ทันทีที่สีเขียวดับ หลอด LED สีน้ำเงิน (Blue) สว่างขึ้นเป็นเวลา 2.5 วินาที แล้วดับลง
+4. เมื่อไฟติดสลับครบทั้ง 3 สี LED ทั้งหมดจะดับสนิทเข้าสู่ช่วงพักระบบ (Rest Phase) เป็นเวลา 3 วินาที เพื่อให้ประจุไฟฟ้าแฝงระบายคายตัวออกจนหมดก่อนเริ่มรอบใหม่
+5. ลำดับการทำงานวนลูปสลับสถานะ (R -> G -> B -> Rest Phase) เป็นไปอย่างต่อเนื่อง เที่ยงตรง และสม่ำเสมอตลอดเวลา

@@ -1,1 +1,6 @@
 .obsidian/**
+Lab/
+build/
+**/build/
+sdkconfig
+sdkconfig.old
